@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import Grid from '@material-ui/core/Grid'
+import { withStyles } from '@material-ui/core/styles'
+import Sidebar from './Sidebar'
+import Main from './Main'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const styles = {
+  root: {
+    flexGrow: 1,
+    height: '100%',
+    position: 'fixed',
+    width:'100%',
+    top:'0px',
+    left:'0px',
+    zIndex:1000,
+    boxSizing: 'border-box',
+  },
+  gridContainer: {
+    height: '100%',
+    flexGrow: 1,
+  },
+  column: {
+    flexGrow: 1,
+  },
 }
 
-export default App;
+function App(props) {
+  const { classes } = props
+  return (
+    <div className={classes.root}>
+      <Grid container className={classes.gridContainer} spacing={0}>
+          <Grid key={0} item xs={4} sm={3} className={classes.column}>
+            <Sidebar />
+          </Grid>
+          <Grid key={1} item xs={8} sm={9} className={classes.column}>
+            <Main />
+          </Grid>
+      </Grid>
+    </div>
+  )
+}
+
+export default withStyles(styles)(App)
