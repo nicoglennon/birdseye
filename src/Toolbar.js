@@ -3,7 +3,6 @@ import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import {default as MuiToolbar} from '@material-ui/core/Toolbar'
 import InputBase from '@material-ui/core/InputBase'
-import { fade } from '@material-ui/core/styles/colorManipulator'
 import Typography from '@material-ui/core/Typography';
 import SearchIcon from '@material-ui/icons/Search'
 import TimelapseIcon from '@material-ui/icons/Timelapse'
@@ -30,6 +29,8 @@ const styles = theme => ({
     flexGrow: 0,
   },
   daysLeftText: {
+    fontStyle: 'italic',
+    opacity: 0.5,
     marginLeft: theme.spacing.unit * 2,
     [theme.breakpoints.up('xs')]: {
       display: 'none',
@@ -39,6 +40,7 @@ const styles = theme => ({
     },
   },
   upgradeText: {
+    textDecoration: 'underline',
     marginLeft: theme.spacing.unit * 2,
     [theme.breakpoints.up('xs')]: {
       display: 'none',
