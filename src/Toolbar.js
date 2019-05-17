@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core/styles'
 import AppBar from '@material-ui/core/AppBar'
 import {default as MuiToolbar} from '@material-ui/core/Toolbar'
 import InputBase from '@material-ui/core/InputBase'
-import Typography from '@material-ui/core/Typography';
+import Typography from '@material-ui/core/Typography'
 import SearchIcon from '@material-ui/icons/Search'
 import TimelapseIcon from '@material-ui/icons/Timelapse'
 import SettingsIcon from '@material-ui/icons/Settings'
@@ -11,14 +11,11 @@ import SettingsIcon from '@material-ui/icons/Settings'
 
 
 const styles = theme => ({
-  root: {
+  toolbarWrapper: {
     width: '100%',
   },
   grow: {
     flexGrow: 1,
-  },
-  appBar: {
-    backgroundColor: '#061584',
   },
   logo: {
     flexGrow: 0,
@@ -29,9 +26,10 @@ const styles = theme => ({
     flexGrow: 0,
   },
   daysLeftText: {
+    padding: '0 5px',
     fontStyle: 'italic',
     opacity: 0.5,
-    marginLeft: theme.spacing.unit * 2,
+    marginLeft: theme.spacing.unit,
     [theme.breakpoints.up('xs')]: {
       display: 'none',
     },
@@ -40,8 +38,9 @@ const styles = theme => ({
     },
   },
   upgradeText: {
+    padding: '0 5px',
     textDecoration: 'underline',
-    marginLeft: theme.spacing.unit * 2,
+    marginLeft: theme.spacing.unit,
     [theme.breakpoints.up('xs')]: {
       display: 'none',
     },
@@ -100,7 +99,7 @@ const styles = theme => ({
 function Toolbar(props) {
   const { classes } = props
   return (
-    <div className={classes.root}>
+    <div className={classes.toolbarWrapper}>
       <AppBar position="static" className={classes.appBar}>
         <MuiToolbar>
           <div className={classes.logo}>
