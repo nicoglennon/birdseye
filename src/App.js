@@ -4,69 +4,95 @@ import { withStyles } from '@material-ui/core/styles'
 import Sidebar from './Sidebar'
 import Main from './Main'
 
+const today = new Date()
+const todayCopy = new Date()
+let tomorrow = todayCopy
+tomorrow.setDate(todayCopy.getDate()+1);
+
 const tasks = [
   {
     id: 0,
     project: 'Birdseye - Application',
     text: 'V1 Interview Scripts',
     checked: false,
-    due: new Date(2019, 5, 17, 8, 0, 0),
+    due: null,
   },
   {
     id: 1,
     project: 'Birdseye - Application',
     text: 'Review Scripts',
     checked: false,
-    due: new Date(2019, 5, 17, 8, 0, 0),
+    due: null,
   },
   {
-    id: 1,
+    id: 2,
     project: 'Birdseye - Application',
     text: 'Customer Map',
     checked: false,
-    due: new Date(2019, 5, 17, 8, 0, 0),
+    due: null,
   },
   {
-    id: 1,
+    id: 3,
     project: 'Birdseye - Application',
     text: 'V1 DOB to web',
     checked: false,
-    due: new Date(2019, 5, 17, 8, 0, 0),
+    due: null,
   },
   {
-    id: 1,
+    id: 4,
     project: 'Birdseye - Application',
     text: 'Order Business Cards',
     checked: false,
-    due: new Date(2019, 5, 17, 8, 0, 0),
+    due: null,
   },
   {
-    id: 1,
+    id: 5,
     project: 'Birdseye - Application',
     text: 'Schedule Dribble Post',
     checked: false,
-    due: new Date(2019, 5, 17, 8, 0, 0),
+    due: null,
   },
   {
-    id: 1,
+    id: 6,
     project: 'Birdseye - Application',
     text: 'Send Invites',
     checked: false,
-    due: new Date(2019, 5, 17, 8, 0, 0),
+    due: null,
   },
   {
-    id: 1,
+    id: 7,
     project: 'Birdseye - Application',
+    text: 'Fix UX Issues',
+    checked: false,
+    due: today,
+  },
+  {
+    id: 8,
+    project: 'Birdseye - Application',
+    text: 'Adjust Final Filtering',
+    checked: false,
+    due: today,
+  },
+  {
+    id: 9,
+    project: 'Birdseye - Application',
+    text: 'Title',
+    checked: true,
+    due: today,
+  },
+  {
+    id: 10,
+    project: 'Oceanair - Application',
     text: 'UX & Wireframing',
     checked: false,
-    due: new Date(2019, 5, 17, 8, 0, 0),
+    due: tomorrow,
   },
   {
-    id: 1,
-    project: 'Birdseye - Application',
+    id: 11,
+    project: 'Oceanair - Application',
     text: 'Prototype Creation',
     checked: false,
-    due: new Date(2019, 5, 17, 8, 0, 0),
+    due: tomorrow,
   },
 ]
 
@@ -83,7 +109,6 @@ const styles = {
   },
   gridContainer: {
     padding: '5px',
-    borderRadius: '10px',
     height: '100%',
     flexGrow: 1,
     backgroundColor: '#e5e5e5',
@@ -102,7 +127,7 @@ function App(props) {
             <Sidebar tasks={tasks}/>
           </Grid>
           <Grid key={1} item xs={8} sm={9} className={classes.column}>
-            <Main />
+            <Main tasks={tasks}/>
           </Grid>
       </Grid>
     </div>

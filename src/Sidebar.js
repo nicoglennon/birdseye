@@ -24,14 +24,8 @@ const styles = {
     width: '100%',
   },
   sidebarTitle: {
-
     color: '#061584',
     marginLeft: '20px',
-  },
-  sidebarTabs: {
-    width: '100%',
-    backgroundColor: 'inherit',
-    color: 'black',
   },
   newTaskBox: {
     flexGrow: 0,
@@ -39,16 +33,20 @@ const styles = {
     backgroundColor:'#f6f8fe',
     padding: '20px',
     cursor: 'pointer',
+    '&:hover': {
+      backgroundColor: '#eff1f8',
+    },
   },
   newTaskText: {
     color: '#a290ff',
     textAlign: 'center',
     alignItems: 'middle',
+    fontSize: '0.7em',
   },
 }
 function TabContainer(props) {
   return (
-    <div style={{overflow: 'scroll', flexGrow: 1}}>
+    <div style={{flexGrow: 1}}>
       {props.children}
     </div>
   );
@@ -79,8 +77,8 @@ function Sidebar(props) {
           + CREATE TASK
         </Typography>
       </div>
-    { value === 0 && <TabContainer>{taskList}</TabContainer> }
-    { value === 1 && <TabContainer>Item Two</TabContainer> }
+      { value === 0 && <TabContainer>{taskList}</TabContainer> }
+      { value === 1 && <TabContainer>Projects</TabContainer> }
     </Grid>
   )
 }

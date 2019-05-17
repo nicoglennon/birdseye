@@ -7,17 +7,32 @@ import PollIcon from '@material-ui/icons/Poll'
 
 const styles = {
   taskWrapper: {
+    width: '100%',
     padding: '15px 5px 15px 0px',
     flexGrow: 1,
     display: 'flex',
     alignItems: 'center',
     borderBottom: '1px solid #f2f4f5',
+    backgroundColor: 'white',
+  },
+  taskWrapperComplete: {
+    width: '100%',
+    padding: '15px 5px 15px 0px',
+    flexGrow: 1,
+    display: 'flex',
+    alignItems: 'center',
+    borderBottom: '1px solid #f2f4f5',
+    backgroundColor: 'white',
+    opacity: 0.6,
   },
   checkbox: {
     flexGrow: 0,
   },
   taskTextWrapper: {
     flexGrow: 1,
+  },
+  taskTextComplete: {
+    textDecoration: 'line-through',
   },
   otherStuff: {
     opacity: 0.6,
@@ -26,32 +41,27 @@ const styles = {
   },
   taskHeader: {
     opacity: 0.6,
-    fontSize: '0.8em',
-  },
-  taskText: {
-    fontSize: '1.1em',
-  },
-  taskDue: {
-    fontSize: '1.1em',
+    fontSize: '0.7em',
   },
   todayText: {
-    fontSize: '0.8em',
+    fontSize: '0.7em',
   },
   timeText: {
-    fontSize: '0.7em',
+    fontSize: '0.6em',
   }
 }
 
 function Task(props) {
   const { classes, task } = props
+  const today = new Date()
   return (
-      <Grid container className={classes.taskWrapper} spacing={0}>
+      <Grid container className={task.checked ? classes.taskWrapperComplete : classes.taskWrapper} spacing={0}>
           <Checkbox checked={task.checked} className={classes.checkbox} label={task.text}/>
           <Grid key={0} item className={classes.taskTextWrapper}>
             <Typography className={classes.taskHeader} variant="body1" color="inherit" noWrap>
               {task.project}
             </Typography>
-            <Typography className={classes.taskText} variant="body1" color="inherit" noWrap>
+            <Typography className={task.checked ? classes.taskTextComplete : classes.taskText} variant="body1" color="inherit" noWrap>
               {task.text}
             </Typography>
           </Grid>
@@ -60,7 +70,7 @@ function Task(props) {
               Today
             </Typography>
             <Typography className={classes.timeText} variant="body1" color="inherit" noWrap>
-              {task.due.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}
+              {task.due ? task.due.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) : today.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'}) }
             </Typography>
           </Grid>
           <div className={classes.trelloIcon}>

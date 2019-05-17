@@ -2,6 +2,7 @@ import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import { withStyles } from '@material-ui/core/styles'
 import Toolbar from './Toolbar'
+import Calendar from './Calendar'
 
 const styles = {
   gridContainer: {
@@ -23,14 +24,14 @@ const styles = {
 }
 
 function Main(props) {
-  const { classes } = props
+  const { classes, tasks } = props
   return (
       <Grid container className={classes.gridContainer} spacing={0}>
           <Grid key={0} item xs={12} className={classes.toolbar}>
             <Toolbar />
           </Grid>
           <Grid key={1} item xs={12} className={classes.daysContainer}>
-            Inside Main!
+            <Calendar tasks={tasks}/>
           </Grid>
       </Grid>
   )
