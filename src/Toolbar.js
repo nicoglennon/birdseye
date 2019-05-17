@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography'
 import SearchIcon from '@material-ui/icons/Search'
 import TimelapseIcon from '@material-ui/icons/Timelapse'
 import SettingsIcon from '@material-ui/icons/Settings'
+import {Link} from 'react-router-dom'
 
 
 
@@ -103,7 +104,9 @@ function Toolbar(props) {
       <AppBar position="static" className={classes.appBar}>
         <MuiToolbar>
           <div className={classes.logo}>
-            <TimelapseIcon />
+            <Link to="/" style={{textDecoration: 'none', color: 'inherit'}}>
+              <TimelapseIcon />
+            </Link>
           </div>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

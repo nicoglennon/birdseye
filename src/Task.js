@@ -8,7 +8,7 @@ import PollIcon from '@material-ui/icons/Poll'
 const styles = {
   taskWrapper: {
     width: '100%',
-    padding: '15px 5px 15px 0px',
+    padding: '15px 10px 15px 0px',
     flexGrow: 1,
     display: 'flex',
     alignItems: 'center',
